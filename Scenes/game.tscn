@@ -2,14 +2,27 @@
 
 [ext_resource type="Script" uid="uid://coywmtie6cpal" path="res://Scenes/game.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://c6dxj136q674c" path="res://Scenes/player.tscn" id="1_ebmjs"]
-[ext_resource type="Texture2D" uid="uid://cfn8pg4uw06en" path="res://Graphics/lvl_1_umpf.png" id="2_qxrlw"]
+[ext_resource type="Texture2D" uid="uid://dapxrpgd2sskx" path="res://Graphics/lvl_1.png" id="2_3dryh"]
 [ext_resource type="Script" uid="uid://gjwmv0uk3mre" path="res://Scenes/ui.gd" id="3_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://csh88bmkuxkpj" path="res://Graphics/lawki1.png" id="4_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://b3hskvtaf5xgn" path="res://Graphics/lvl_1_biurko.png" id="4_v158k"]
+[ext_resource type="Texture2D" uid="uid://cmncqsk4rdkuh" path="res://Graphics/lawki2.png" id="5_v158k"]
+[ext_resource type="Texture2D" uid="uid://dsmgodk8bmm0u" path="res://Graphics/lawki3.png" id="6_h4fw4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rscd"]
-size = Vector2(1931, 332)
+size = Vector2(1931, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v3l1"]
-size = Vector2(121, 193)
+size = Vector2(96.5, 162.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiwqa"]
+size = Vector2(89.5, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcx2g"]
+size = Vector2(165, 961.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8rscd"]
+radius = 166.0271
 
 [sub_resource type="Animation" id="Animation_3dryh"]
 length = 0.001
@@ -63,97 +76,234 @@ _data = {
 &"fade_out": SubResource("Animation_i6g32")
 }
 
-[node name="game" type="Node2D" unique_id=107325764]
+[node name="game" type="Node2D" unique_id=107325764 node_paths=PackedStringArray("lawki1", "lawki2", "lawki3", "biorko")]
 script = ExtResource("1_3dryh")
+lawki1 = NodePath("lawki/Lawki1")
+lawki2 = NodePath("lawki/Lawki2")
+lawki3 = NodePath("lawki/Lawki3")
+biorko = NodePath("lawki/Lvl1Biurko")
 
-[node name="Lvl1Umpf" type="Sprite2D" parent="." unique_id=847385776]
-z_index = -5
-position = Vector2(958, 598)
-scale = Vector2(0.6014831, 0.6014832)
-texture = ExtResource("2_qxrlw")
+[node name="map" type="Node2D" parent="." unique_id=18186117]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=15095170]
-visible = false
-offset_left = 1.0
-offset_right = 735.0
-offset_bottom = 482.0
-color = Color(0.5689727, 0.56897277, 0.5689727, 1)
+[node name="Lvl1" type="Sprite2D" parent="map" unique_id=739332757]
+position = Vector2(807, 494)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_3dryh")
 
 [node name="player" parent="." unique_id=1547443021 instance=ExtResource("1_ebmjs")]
-position = Vector2(639, 696)
+position = Vector2(575.11, 567.395)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1935067067]
 limit_left = 0
 limit_top = 0
+limit_right = 1600
+limit_bottom = 975
+
+[node name="lawki" type="Node2D" parent="." unique_id=1176637761]
+
+[node name="Lvl1Biurko" type="Sprite2D" parent="lawki" unique_id=179964483]
+position = Vector2(807, 494)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_v158k")
+
+[node name="Lawki1" type="Sprite2D" parent="lawki" unique_id=418933508]
+position = Vector2(821, 837)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_1l0tm")
+
+[node name="Lawki2" type="Sprite2D" parent="lawki" unique_id=2062700914]
+position = Vector2(807, 586)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_v158k")
+
+[node name="Lawki3" type="Sprite2D" parent="lawki" unique_id=1353567912]
+position = Vector2(807, 384)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_h4fw4")
 
 [node name="collisions" type="StaticBody2D" parent="." unique_id=1469257701]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collisions" unique_id=5055226]
-position = Vector2(955.5, 156)
+position = Vector2(875, 237)
+shape = SubResource("RectangleShape2D_8rscd")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="collisions" unique_id=1291579561]
+position = Vector2(832, 985)
 shape = SubResource("RectangleShape2D_8rscd")
 
 [node name="table" type="CollisionShape2D" parent="collisions" unique_id=1057877600]
-position = Vector2(486.5, 450)
+position = Vector2(182.75, 394.25)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
 
-[node name="table2" type="CollisionShape2D" parent="collisions" unique_id=1119397708]
-position = Vector2(206, 448)
+[node name="table2" type="CollisionShape2D" parent="collisions" unique_id=1695105635]
+position = Vector2(433, 400)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
 
-[node name="table3" type="CollisionShape2D" parent="collisions" unique_id=1427826900]
-position = Vector2(484.5, 689.5)
+[node name="table3" type="CollisionShape2D" parent="collisions" unique_id=59985442]
+position = Vector2(682, 400)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
 
-[node name="table4" type="CollisionShape2D" parent="collisions" unique_id=1158992471]
-position = Vector2(204, 684)
+[node name="table4" type="CollisionShape2D" parent="collisions" unique_id=2053113005]
+position = Vector2(923, 397)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
 
-[node name="table5" type="CollisionShape2D" parent="collisions" unique_id=785281600]
-position = Vector2(486.5, 941)
+[node name="table5" type="CollisionShape2D" parent="collisions" unique_id=857521611]
+position = Vector2(1172, 400)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
 
-[node name="table6" type="CollisionShape2D" parent="collisions" unique_id=277460635]
-position = Vector2(206, 939)
+[node name="table6" type="CollisionShape2D" parent="collisions" unique_id=369475816]
+position = Vector2(183, 598)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
 
-[node name="table7" type="CollisionShape2D" parent="collisions" unique_id=1131857683]
-position = Vector2(1038.5, 457)
+[node name="table7" type="CollisionShape2D" parent="collisions" unique_id=721189712]
+position = Vector2(433.25, 603.75)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
 
-[node name="table8" type="CollisionShape2D" parent="collisions" unique_id=1231688753]
-position = Vector2(758, 455)
+[node name="table8" type="CollisionShape2D" parent="collisions" unique_id=649435583]
+position = Vector2(682.25, 603.75)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
 
-[node name="table9" type="CollisionShape2D" parent="collisions" unique_id=1623101894]
-position = Vector2(1036.5, 693)
+[node name="table9" type="CollisionShape2D" parent="collisions" unique_id=292655296]
+position = Vector2(923.25, 600.75)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
 
-[node name="table10" type="CollisionShape2D" parent="collisions" unique_id=1420709595]
-position = Vector2(756, 691)
+[node name="table10" type="CollisionShape2D" parent="collisions" unique_id=1758045438]
+position = Vector2(1172.25, 603.75)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
 
-[node name="table11" type="CollisionShape2D" parent="collisions" unique_id=1617760720]
-position = Vector2(1038.5, 948)
+[node name="table11" type="CollisionShape2D" parent="collisions" unique_id=649736642]
+position = Vector2(183, 799)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
 
-[node name="table12" type="CollisionShape2D" parent="collisions" unique_id=93976272]
-position = Vector2(758, 946)
+[node name="table12" type="CollisionShape2D" parent="collisions" unique_id=1344424866]
+position = Vector2(433.25, 804.75)
 shape = SubResource("RectangleShape2D_4v3l1")
 debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table13" type="CollisionShape2D" parent="collisions" unique_id=1547722159]
+position = Vector2(682.25, 804.75)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table14" type="CollisionShape2D" parent="collisions" unique_id=1952733177]
+position = Vector2(923.25, 801.75)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table15" type="CollisionShape2D" parent="collisions" unique_id=1791464109]
+position = Vector2(1172.25, 804.75)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions" unique_id=186227169]
+position = Vector2(111, 373)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="collisions" unique_id=853477478]
+position = Vector2(365, 386)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="collisions" unique_id=95970423]
+position = Vector2(611, 387)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="collisions" unique_id=1105822819]
+position = Vector2(850, 384)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="collisions" unique_id=1674518]
+position = Vector2(1099, 391)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="collisions" unique_id=1403879399]
+position = Vector2(1098, 593)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="collisions" unique_id=819351713]
+position = Vector2(849, 586)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="collisions" unique_id=957979578]
+position = Vector2(609, 590)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="collisions" unique_id=837868870]
+position = Vector2(365, 588)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="collisions" unique_id=580474492]
+position = Vector2(107, 576)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="collisions" unique_id=1447694081]
+position = Vector2(109, 778)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="collisions" unique_id=1297092972]
+position = Vector2(364, 793)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="collisions" unique_id=1585971069]
+position = Vector2(605, 794)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="collisions" unique_id=240692309]
+position = Vector2(850, 787)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="collisions" unique_id=1802523931]
+position = Vector2(1098, 794)
+shape = SubResource("RectangleShape2D_oiwqa")
+debug_color = Color(0.1078377, 0.6478832, 9.62615e-07, 0.41960785)
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="collisions" unique_id=1497390954]
+position = Vector2(-49, 557.75)
+shape = SubResource("RectangleShape2D_gcx2g")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="collisions" unique_id=1295062435]
+position = Vector2(1678, 568)
+shape = SubResource("RectangleShape2D_gcx2g")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions" unique_id=1352969483]
+polygon = PackedVector2Array(1295, 322, 1294, 514, 1413, 517, 1413, 463, 1462, 463, 1458, 350, 1411, 350, 1410, 316)
+
+[node name="interactables" type="Node2D" parent="." unique_id=922406974]
+
+[node name="Door" type="Area2D" parent="interactables" unique_id=1365038037]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactables/Door" unique_id=1210494947]
+position = Vector2(1394, 956)
+shape = SubResource("CircleShape2D_8rscd")
+debug_color = Color(0.71387404, 0.31815246, 0.91075844, 0.41960785)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1022639983]
+visible = false
 script = ExtResource("3_wrm1d")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="UI" unique_id=359623933]
@@ -186,7 +336,12 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="BounceTimer" type="Timer" parent="UI" unique_id=803823199]
-wait_time = 5.0
+wait_time = 15.0
 autostart = true
 
+[node name="Node2D" type="Node2D" parent="." unique_id=1276269728]
+position = Vector2(1599, 936)
+
+[connection signal="body_entered" from="interactables/Door" to="." method="_on_door_body_entered"]
+[connection signal="body_exited" from="interactables/Door" to="." method="_on_door_body_exited"]
 [connection signal="timeout" from="UI/BounceTimer" to="." method="_on_bounce_timer_timeout"]

@@ -5,6 +5,8 @@ const SPRINT = 1.5
 var cursprint = 1.0
 var stop = false
 
+var interact: String = ""
+
 func _physics_process(delta: float) -> void:
 	var input_vector:= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if Input.is_action_pressed("sprint"):
@@ -18,4 +20,13 @@ func _physics_process(delta: float) -> void:
 				$Icon.flip_h = true
 			elif input_vector.x < 0:
 				$Icon.flip_h = false
+		
+		if not stop:
 			move_and_slide()
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("interact"):
+		match interact:
+			"door":
+				self.position = Vector2(1392.568,1011.418)
+				interact = ""
