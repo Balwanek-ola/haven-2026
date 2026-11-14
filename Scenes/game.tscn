@@ -1,18 +1,192 @@
 [gd_scene format=3 uid="uid://slnhslaj6aj3"]
 
+[ext_resource type="Script" uid="uid://coywmtie6cpal" path="res://Scenes/game.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://c6dxj136q674c" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="Texture2D" uid="uid://cfn8pg4uw06en" path="res://Graphics/lvl_1_umpf.png" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://gjwmv0uk3mre" path="res://Scenes/ui.gd" id="3_wrm1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rscd"]
+size = Vector2(1931, 332)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v3l1"]
+size = Vector2(121, 193)
+
+[sub_resource type="Animation" id="Animation_3dryh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/black:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wowpa"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/black:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i6g32"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/black:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1l0tm"]
+_data = {
+&"RESET": SubResource("Animation_3dryh"),
+&"fade_in": SubResource("Animation_wowpa"),
+&"fade_out": SubResource("Animation_i6g32")
+}
 
 [node name="game" type="Node2D" unique_id=107325764]
+script = ExtResource("1_3dryh")
+
+[node name="Lvl1Umpf" type="Sprite2D" parent="." unique_id=847385776]
+z_index = -5
+position = Vector2(958, 598)
+scale = Vector2(0.6014831, 0.6014832)
+texture = ExtResource("2_qxrlw")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=15095170]
+visible = false
 offset_left = 1.0
 offset_right = 735.0
 offset_bottom = 482.0
 color = Color(0.5689727, 0.56897277, 0.5689727, 1)
 
 [node name="player" parent="." unique_id=1547443021 instance=ExtResource("1_ebmjs")]
-position = Vector2(87, 125)
+position = Vector2(639, 696)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1935067067]
 limit_left = 0
 limit_top = 0
+
+[node name="collisions" type="StaticBody2D" parent="." unique_id=1469257701]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions" unique_id=5055226]
+position = Vector2(955.5, 156)
+shape = SubResource("RectangleShape2D_8rscd")
+
+[node name="table" type="CollisionShape2D" parent="collisions" unique_id=1057877600]
+position = Vector2(486.5, 450)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table2" type="CollisionShape2D" parent="collisions" unique_id=1119397708]
+position = Vector2(206, 448)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table3" type="CollisionShape2D" parent="collisions" unique_id=1427826900]
+position = Vector2(484.5, 689.5)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table4" type="CollisionShape2D" parent="collisions" unique_id=1158992471]
+position = Vector2(204, 684)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table5" type="CollisionShape2D" parent="collisions" unique_id=785281600]
+position = Vector2(486.5, 941)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table6" type="CollisionShape2D" parent="collisions" unique_id=277460635]
+position = Vector2(206, 939)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table7" type="CollisionShape2D" parent="collisions" unique_id=1131857683]
+position = Vector2(1038.5, 457)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table8" type="CollisionShape2D" parent="collisions" unique_id=1231688753]
+position = Vector2(758, 455)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table9" type="CollisionShape2D" parent="collisions" unique_id=1623101894]
+position = Vector2(1036.5, 693)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table10" type="CollisionShape2D" parent="collisions" unique_id=1420709595]
+position = Vector2(756, 691)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table11" type="CollisionShape2D" parent="collisions" unique_id=1617760720]
+position = Vector2(1038.5, 948)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="table12" type="CollisionShape2D" parent="collisions" unique_id=93976272]
+position = Vector2(758, 946)
+shape = SubResource("RectangleShape2D_4v3l1")
+debug_color = Color(0.2393282, 0.63736665, 3.85046e-07, 0.41960785)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1022639983]
+script = ExtResource("3_wrm1d")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="UI" unique_id=359623933]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.5
+offset_right = 32.5
+offset_bottom = 47.0
+grow_horizontal = 2
+
+[node name="Control" type="Control" parent="UI/HBoxContainer" unique_id=1181235421]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="UI/HBoxContainer" unique_id=975314603]
+unique_name_in_owner = true
+layout_mode = 2
+text = "fgfgffgfg"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=1376688030]
+libraries/ = SubResource("AnimationLibrary_1l0tm")
+
+[node name="black" type="ColorRect" parent="UI/AnimationPlayer" unique_id=24836834]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="BounceTimer" type="Timer" parent="UI" unique_id=803823199]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="UI/BounceTimer" to="." method="_on_bounce_timer_timeout"]
