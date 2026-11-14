@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var game = $".."
 const SPEED = 200.0
 const SPRINT = 1.5
 var cursprint = 1.0
@@ -28,5 +29,13 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("interact"):
 		match interact:
 			"door":
-				self.position = Vector2(1392.568,1011.418)
+				self.position = Vector2(50,1807.313)
+				$"..".level +=1
+				$Camera2D.limit_left = 0
+				$Camera2D.limit_top = 1267.0
+				$Camera2D.limit_right = 1600
+				$Camera2D.limit_bottom = 2203.0
 				interact = ""
+			"":
+				game.pop_up("fart", game.player.position)
+				
