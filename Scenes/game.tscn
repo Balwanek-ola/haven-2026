@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://slnhslaj6aj3"]
+
+[ext_resource type="PackedScene" uid="uid://c6dxj136q674c" path="res://Scenes/player.tscn" id="1_ebmjs"]
+
+[node name="game" type="Node2D" unique_id=107325764]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=15095170]
+offset_left = 1.0
+offset_right = 735.0
+offset_bottom = 482.0
+color = Color(0.5689727, 0.56897277, 0.5689727, 1)
+
+[node name="player" parent="." unique_id=1547443021 instance=ExtResource("1_ebmjs")]
+position = Vector2(87, 125)
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1935067067]
+limit_left = 0
+limit_top = 0
