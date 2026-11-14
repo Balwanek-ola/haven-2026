@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://gsfo0sh60wc5"]
+
+[node name="Node2D" type="Node2D" unique_id=419521297]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=354000887]
+offset_right = 1191.0
+offset_bottom = 692.0
