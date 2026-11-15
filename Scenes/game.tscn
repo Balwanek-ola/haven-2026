@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cs1pru5nu73n3" path="res://Graphics/lvl_2.png" id="4_h4fw4"]
 [ext_resource type="Texture2D" uid="uid://c6gwa8lsuqawy" path="res://Graphics/lvl_3.png" id="4_rku1e"]
 [ext_resource type="Texture2D" uid="uid://b3hskvtaf5xgn" path="res://Graphics/lvl_1_biurko.png" id="4_v158k"]
+[ext_resource type="Texture2D" uid="uid://cwb343f324ix7" path="res://Graphics/lvl_3_swiatlo.png" id="5_bwj6o"]
 [ext_resource type="Texture2D" uid="uid://cmncqsk4rdkuh" path="res://Graphics/lawki2.png" id="5_v158k"]
 [ext_resource type="Texture2D" uid="uid://dsmgodk8bmm0u" path="res://Graphics/lawki3.png" id="6_h4fw4"]
 [ext_resource type="Script" uid="uid://c7gxq110bncf8" path="res://Scenes/popup.gd" id="9_ldgsr"]
@@ -29,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://goeykg5miep0" path="res://Graphics/swiatlo_4.png" id="16_6uxt2"]
 [ext_resource type="Texture2D" uid="uid://cunso16fnruq" path="res://Graphics/lampa_1.png" id="16_xe308"]
 [ext_resource type="Texture2D" uid="uid://kf8jcp6d4qjp" path="res://Graphics/lampa_n_2.png" id="17_d3cha"]
+[ext_resource type="Texture2D" uid="uid://bm0cior7p1drr" path="res://Graphics/swiatlo.png" id="17_ym3tv"]
 [ext_resource type="Texture2D" uid="uid://dqq2l00pfhq8s" path="res://Graphics/lampa_4.png" id="18_i26dy"]
 [ext_resource type="Texture2D" uid="uid://dfabivm67op1q" path="res://Graphics/lampa_n_4.png" id="19_lmoi6"]
 [ext_resource type="Texture2D" uid="uid://cjduegbfpn3nv" path="res://Graphics/swiatlo_3.png" id="19_ym3tv"]
@@ -262,6 +264,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../map/Lvl3Swiatlo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Ramka:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_wowpa"]
 resource_name = "fade_in"
@@ -293,12 +319,43 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_bwj6o"]
+resource_name = "swiatlo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../map/Lvl3Swiatlo:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Ramka:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1l0tm"]
 _data = {
 &"RESET": SubResource("Animation_3dryh"),
 &"fade_in": SubResource("Animation_wowpa"),
-&"fade_out": SubResource("Animation_i6g32")
+&"fade_out": SubResource("Animation_i6g32"),
+&"swiatlo": SubResource("Animation_bwj6o")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuhkv"]
+size = Vector2(418, 278)
 
 [node name="game" type="Node2D" unique_id=107325764 node_paths=PackedStringArray("lawki1", "lawki2", "lawki3", "biorko", "popup", "glanim", "bounceTimer", "drzwi", "plakat_1", "plakat_2", "plakat_3", "pinpad")]
 script = ExtResource("1_3dryh")
@@ -332,6 +389,12 @@ texture = ExtResource("4_h4fw4")
 position = Vector2(800, 2948)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_rku1e")
+
+[node name="Lvl3Swiatlo" type="Sprite2D" parent="map" unique_id=931573592]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(800, 2948)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_bwj6o")
 
 [node name="player" parent="." unique_id=1547443021 instance=ExtResource("1_ebmjs")]
 position = Vector2(526.05, 567.395)
@@ -394,7 +457,7 @@ collision_layer = 2
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8m3t6")
 animation = &"off"
-frame_progress = 0.30902287
+frame_progress = 0.57228047
 
 [node name="light3" type="Node2D" parent="lvl3/Lampa3" unique_id=2063586162]
 visible = false
@@ -406,6 +469,12 @@ texture = ExtResource("18_i26dy")
 [node name="Swiatlo3" type="Sprite2D" parent="lvl3/Lampa3/light3" unique_id=1040337638]
 z_index = -5
 texture = ExtResource("16_6uxt2")
+
+[node name="Swiatlo" type="Sprite2D" parent="lvl3/Lampa3/light3" unique_id=2005908023]
+modulate = Color(1, 1, 1, 0.29411766)
+position = Vector2(442, 554)
+scale = Vector2(2, 2)
+texture = ExtResource("17_ym3tv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl3/Lampa3" unique_id=653900346]
 position = Vector2(-599, 278)
@@ -422,6 +491,11 @@ animation = &"off"
 
 [node name="lighti1" type="Node2D" parent="lvl3/Lampa1" unique_id=1682056000]
 visible = false
+
+[node name="Swiatlo" type="Sprite2D" parent="lvl3/Lampa1/lighti1" unique_id=1355236685]
+modulate = Color(1, 1, 1, 0.32156864)
+position = Vector2(0, -695)
+texture = ExtResource("17_ym3tv")
 
 [node name="Swiatlo1" type="Sprite2D" parent="lvl3/Lampa1/lighti1" unique_id=1466431368]
 z_index = -5
@@ -462,6 +536,11 @@ z_index = -5
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("20_i26dy")
 
+[node name="Swiatlo3" type="Sprite2D" parent="lvl3/Lampa2/loght2" unique_id=1252402992]
+modulate = Color(1, 1, 1, 0.38039216)
+position = Vector2(956, -666)
+texture = ExtResource("17_ym3tv")
+
 [node name="Lampa4" type="Area2D" parent="lvl3" unique_id=1759462680]
 collision_layer = 2
 
@@ -486,6 +565,11 @@ texture = ExtResource("20_6uxt2")
 z_index = -5
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("23_lmoi6")
+
+[node name="Swiatlo" type="Sprite2D" parent="lvl3/Lampa4/light4" unique_id=1297702690]
+modulate = Color(1, 1, 1, 0.38039216)
+position = Vector2(1424, 140)
+texture = ExtResource("17_ym3tv")
 
 [node name="collisions" type="StaticBody2D" parent="." unique_id=1469257701]
 collision_layer = 2
@@ -680,7 +764,7 @@ polygon = PackedVector2Array(1620, 490, 1533, 490, 1530, 848, 1608, 848)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions" unique_id=845197648]
 position = Vector2(4, 6)
-polygon = PackedVector2Array(1071, 3451, 1067, 3251, 1585, 3254, 1564, 2336, 1040, 2408, 1063, 2750, -2, 2752, 1, 3403, 1047, 3410, 988, 3631, -279, 3499, -148, 2412, 1337, 2312, 1799, 2315, 1772, 3565)
+polygon = PackedVector2Array(1071, 3451, 1067, 3251, 1585, 3254, 1569, 2655, 1045, 2642, 1063, 2750, -2, 2752, 1, 3403, 1047, 3410, 988, 3631, -279, 3499, -148, 2412, 1337, 2312, 1799, 2315, 1772, 3565)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions" unique_id=342373537]
 polygon = PackedVector2Array(301, 1456, 301, 1728, 492, 1728, 490.25, 1628.2512, 606, 1628, 695, 1547, 836, 1589, 953, 1508, 487, 1443)
@@ -799,6 +883,7 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("14_ewbju")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="UI" unique_id=359623933]
+custom_minimum_size = Vector2(300, 0)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -822,11 +907,18 @@ text = "fgfgffgfg"
 horizontal_alignment = 1
 
 [node name="Control2" type="Control" parent="UI/HBoxContainer" unique_id=2059415475]
-custom_minimum_size = Vector2(0, 300)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
 [node name="InputCode" type="LineEdit" parent="UI/HBoxContainer" unique_id=64554640]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/HBoxContainer/InputCode" unique_id=1442140221]
+layout_mode = 0
+offset_top = -27.0
+offset_right = 300.0
+offset_bottom = -4.0
+text = "Drzwi nie otwierają się. Wpisz KOD:"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=1376688030]
 libraries/ = SubResource("AnimationLibrary_1l0tm")
@@ -840,7 +932,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="BounceTimer" type="Timer" parent="UI" unique_id=803823199]
-wait_time = 45.0
+wait_time = 120.0
 
 [node name="Control" type="Control" parent="UI" unique_id=57987826]
 layout_mode = 3
@@ -856,6 +948,13 @@ scale = Vector2(0.36038056, 0.3296146)
 texture = ExtResource("22_7t8sx")
 
 [node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1630566595]
+
+[node name="END" type="Area2D" parent="." unique_id=1682017686]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="END" unique_id=934792631]
+position = Vector2(1323, 2619)
+shape = SubResource("RectangleShape2D_fuhkv")
+debug_color = Color(0.79460377, 0.4258787, 0, 0.41960785)
 
 [connection signal="body_entered" from="lvl3/Lampa3" to="." method="_on_lampa_3_body_entered"]
 [connection signal="body_exited" from="lvl3/Lampa3" to="." method="_on_lampa_3_body_exited"]
@@ -877,3 +976,5 @@ texture = ExtResource("22_7t8sx")
 [connection signal="body_exited" from="interactables/CodeDoor" to="." method="_on_code_door_body_exited"]
 [connection signal="text_submitted" from="UI/HBoxContainer/InputCode" to="." method="_on_input_code_text_submitted"]
 [connection signal="timeout" from="UI/BounceTimer" to="." method="_on_bounce_timer_timeout"]
+[connection signal="body_entered" from="END" to="." method="_on_end_body_entered"]
+[connection signal="body_exited" from="END" to="." method="_on_end_body_exited"]

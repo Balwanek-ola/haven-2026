@@ -16,6 +16,7 @@ var level: int = 1
 @export var plakat_3: Sprite2D
 @export var pinpad: Sprite2D
 
+var end: bool = false
 
 var cdoor_open: bool = false
 
@@ -53,6 +54,7 @@ func _process(delta: float) -> void:
 
 
 func _on_bounce_timer_timeout() -> void:
+	Global.loops += 1
 	bounceTimer.stop()
 	glanim.play("fade_out")
 	await get_tree().create_timer(1).timeout
@@ -99,7 +101,7 @@ func _on_code_door_body_exited(body: Node2D) -> void:
 
 
 func _on_input_code_text_submitted(code: String) -> void:
-	if code == "atk":
+	if code.to_lower() == "atk":
 		pop_up("Dobry kod! Drzwi otwarte", Vector2(600,1800))
 		cdoor_open = true
 	else:
@@ -193,3 +195,9 @@ func _on_lampa_4_body_exited(body: Node2D) -> void:
 	if body == player:
 		
 		if player.interact == "lampa_4":player.interact = ""
+
+
+func _on_end_body_entered(body: Node2D) -> void:
+	if end:
+		glanim.play("fade_out")
+		player.stop = true
