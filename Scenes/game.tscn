@@ -34,6 +34,7 @@
 [ext_resource type="FontFile" uid="uid://rnvglsoiqhg6" path="res://Dreamy Summer.otf" id="21_exi56"]
 [ext_resource type="Texture2D" uid="uid://dvhvt0vxx6dec" path="res://Graphics/lampa_n_3.png" id="21_ym3tv"]
 [ext_resource type="Texture2D" uid="uid://ddw3qhxlketqp" path="res://Graphics/ramka.png" id="22_7t8sx"]
+[ext_resource type="AudioStream" uid="uid://ctnqwwmb7wy4c" path="res://bgmplay.wav" id="35_d3cha"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8m3t6"]
 animations = [{
@@ -800,6 +801,7 @@ scale = Vector2(0.36038056, 0.3296146)
 texture = ExtResource("22_7t8sx")
 
 [node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1630566595]
+stream = ExtResource("35_d3cha")
 
 [connection signal="body_entered" from="lvl3/Lampa3" to="." method="_on_lampa_3_body_entered"]
 [connection signal="body_exited" from="lvl3/Lampa3" to="." method="_on_lampa_3_body_exited"]
