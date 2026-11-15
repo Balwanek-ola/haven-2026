@@ -11,9 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://cmncqsk4rdkuh" path="res://Graphics/lawki2.png" id="5_v158k"]
 [ext_resource type="Texture2D" uid="uid://dsmgodk8bmm0u" path="res://Graphics/lawki3.png" id="6_h4fw4"]
 [ext_resource type="Script" uid="uid://c7gxq110bncf8" path="res://Scenes/popup.gd" id="9_ldgsr"]
+[ext_resource type="Texture2D" uid="uid://c2n45thtvftnm" path="res://Graphics/plakat_1.png" id="10_iivbl"]
+[ext_resource type="Texture2D" uid="uid://b8kybjbffo3cy" path="res://Scenes/drzwi.png" id="10_nnt18"]
+[ext_resource type="Texture2D" uid="uid://eg4pi82rkvg3" path="res://Graphics/plakat_2.png" id="11_7nbq1"]
 [ext_resource type="Theme" uid="uid://dcpp3homyxayq" path="res://Graphics/themes/timer.tres" id="11_o5yvi"]
+[ext_resource type="Texture2D" uid="uid://5md2b45hy0fp" path="res://Graphics/plakat_3.png" id="12_exi56"]
 [ext_resource type="Texture2D" uid="uid://kv6ofotyuao2" path="res://Graphics/poster1.png" id="12_nb51f"]
 [ext_resource type="Texture2D" uid="uid://cajyiwdvveess" path="res://Graphics/poster2.png" id="13_nnt18"]
+[ext_resource type="Texture2D" uid="uid://cb7k01n0kkifb" path="res://Graphics/pinpad.webp" id="14_7nbq1"]
 [ext_resource type="Texture2D" uid="uid://d3ap7x732xuf2" path="res://Graphics/poster3.png" id="14_ewbju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rscd"]
@@ -197,7 +202,7 @@ _data = {
 &"fade_out": SubResource("Animation_i6g32")
 }
 
-[node name="game" type="Node2D" unique_id=107325764 node_paths=PackedStringArray("lawki1", "lawki2", "lawki3", "biorko", "popup", "glanim", "bounceTimer")]
+[node name="game" type="Node2D" unique_id=107325764 node_paths=PackedStringArray("lawki1", "lawki2", "lawki3", "biorko", "popup", "glanim", "bounceTimer", "drzwi", "plakat_1", "plakat_2", "plakat_3", "pinpad")]
 script = ExtResource("1_3dryh")
 lawki1 = NodePath("lawki/Lawki1")
 lawki2 = NodePath("lawki/Lawki2")
@@ -206,6 +211,11 @@ biorko = NodePath("lawki/Lvl1Biurko")
 popup = NodePath("popup")
 glanim = NodePath("UI/AnimationPlayer")
 bounceTimer = NodePath("UI/BounceTimer")
+drzwi = NodePath("interactables/Door/CollisionShape2D/Drzwi")
+plakat_1 = NodePath("interactables/Poster1/Plakat1")
+plakat_2 = NodePath("interactables/Poster2/Plakat2")
+plakat_3 = NodePath("interactables/Poster3/Plakat3")
+pinpad = NodePath("interactables/CodeDoor/CollisionShape2D/Pinpad")
 
 [node name="map" type="Node2D" parent="." unique_id=18186117]
 
@@ -463,12 +473,22 @@ position = Vector2(134, 1468)
 shape = SubResource("RectangleShape2D_opl3t")
 debug_color = Color(0.7956861, 0.34018487, 0.6572328, 0.41960785)
 
+[node name="Plakat1" type="Sprite2D" parent="interactables/Poster1" unique_id=479095908]
+position = Vector2(782.00006, 1739)
+scale = Vector2(2.0847461, 2.0847461)
+texture = ExtResource("10_iivbl")
+
 [node name="Poster2" type="Area2D" parent="interactables" unique_id=641651294]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="interactables/Poster2" unique_id=1495460242]
 position = Vector2(996, 1457)
 shape = SubResource("RectangleShape2D_opl3t")
 debug_color = Color(0.7956861, 0.34018487, 0.6572328, 0.41960785)
+
+[node name="Plakat2" type="Sprite2D" parent="interactables/Poster2" unique_id=1116335896]
+position = Vector2(780.00006, 1747)
+scale = Vector2(2.0646188, 2.0646188)
+texture = ExtResource("11_7nbq1")
 
 [node name="Poster3" type="Area2D" parent="interactables" unique_id=1642432790]
 
@@ -477,6 +497,11 @@ position = Vector2(1290, 1459)
 shape = SubResource("RectangleShape2D_opl3t")
 debug_color = Color(0.7956861, 0.34018487, 0.6572328, 0.41960785)
 
+[node name="Plakat3" type="Sprite2D" parent="interactables/Poster3" unique_id=1040058357]
+position = Vector2(760, 1755.9999)
+scale = Vector2(2.1663132, 2.1663132)
+texture = ExtResource("12_exi56")
+
 [node name="Door" type="Area2D" parent="interactables" unique_id=1365038037]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactables/Door" unique_id=1210494947]
@@ -484,12 +509,23 @@ position = Vector2(1394, 956)
 shape = SubResource("CircleShape2D_8rscd")
 debug_color = Color(0.71387404, 0.31815246, 0.91075844, 0.41960785)
 
+[node name="Drzwi" type="Sprite2D" parent="interactables/Door/CollisionShape2D" unique_id=1556769263]
+position = Vector2(-590, -469)
+scale = Vector2(2.0963545, 2.0635598)
+texture = ExtResource("10_nnt18")
+
 [node name="CodeDoor" type="Area2D" parent="interactables" unique_id=761981248]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactables/CodeDoor" unique_id=893558744]
 position = Vector2(1575, 1797)
 shape = SubResource("CircleShape2D_4v3l1")
 debug_color = Color(0.6433903, 0.34319955, 0.986458, 0.41960785)
+
+[node name="Pinpad" type="Sprite2D" parent="interactables/CodeDoor/CollisionShape2D" unique_id=1095329587]
+position = Vector2(-148.99988, -213)
+rotation = 1.5673742
+scale = Vector2(0.5368717, 0.42275676)
+texture = ExtResource("14_7nbq1")
 
 [node name="popup" type="Node2D" parent="." unique_id=791690803]
 z_index = 2
