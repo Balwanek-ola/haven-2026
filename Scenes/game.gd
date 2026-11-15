@@ -99,7 +99,7 @@ func _on_code_door_body_exited(body: Node2D) -> void:
 
 
 func _on_input_code_text_submitted(code: String) -> void:
-	if code == "fart":
+	if code == "atk":
 		pop_up("Dobry kod! Drzwi otwarte", Vector2(600,1800))
 		cdoor_open = true
 	else:
