@@ -52,6 +52,7 @@ func _process(delta: float) -> void:
 			"poster3":
 				$"../UI/ItemView/Poster3".visible = false
 				stop = false
+		view_item = false
 		
 	if Input.is_action_just_pressed("interact"):
 		if not view_item:
@@ -76,6 +77,7 @@ func _process(delta: float) -> void:
 						$Camera2D.limit_top = 2460
 						$Camera2D.limit_right = 1600
 						$Camera2D.limit_bottom = 3450
+						$Camera2D.zoom = Vector2(0.9, 0.9)
 				"poster1":
 					stop = true
 					view_item = true
@@ -89,13 +91,14 @@ func _process(delta: float) -> void:
 					view_item = true
 					$"../UI/ItemView/Poster3".visible = true
 				"lampa1":
-					pass
+					print("1")
+					$"../lvl3/Lampa1/lighti1".visible = true
 				"lampa2":
-					pass
+					$"../lvl3/Lampa2/loght2".visible= true
 				"lampa3":
-					pass
+					$"../lvl3/Lampa3/light3".visible=true
 				"lampa4":
-					pass
+					$"../lvl3/Lampa4/light4".visible=true
 					
 					
 				

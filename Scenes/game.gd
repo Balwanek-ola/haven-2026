@@ -31,6 +31,7 @@ func _ready() -> void:
 	$player/Camera2D.limit_top = 0
 	$player/Camera2D.limit_right = 1600
 	$player/Camera2D.limit_bottom = 975
+	$player/Camera2D.zoom = Vector2(1,1)
 	_start()
 
 func _start():

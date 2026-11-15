@@ -26,14 +26,18 @@
 [ext_resource type="Texture2D" uid="uid://d3ap7x732xuf2" path="res://Graphics/poster3.png" id="14_ewbju"]
 [ext_resource type="Texture2D" uid="uid://sgf67xggdipo" path="res://Graphics/lampa_3.png" id="14_tgy6u"]
 [ext_resource type="Texture2D" uid="uid://ffg1bites137" path="res://Graphics/lampa_n_1.png" id="15_cwurv"]
+[ext_resource type="Texture2D" uid="uid://goeykg5miep0" path="res://Graphics/swiatlo_4.png" id="16_6uxt2"]
 [ext_resource type="Texture2D" uid="uid://cunso16fnruq" path="res://Graphics/lampa_1.png" id="16_xe308"]
 [ext_resource type="Texture2D" uid="uid://kf8jcp6d4qjp" path="res://Graphics/lampa_n_2.png" id="17_d3cha"]
 [ext_resource type="Texture2D" uid="uid://dqq2l00pfhq8s" path="res://Graphics/lampa_4.png" id="18_i26dy"]
 [ext_resource type="Texture2D" uid="uid://dfabivm67op1q" path="res://Graphics/lampa_n_4.png" id="19_lmoi6"]
+[ext_resource type="Texture2D" uid="uid://cjduegbfpn3nv" path="res://Graphics/swiatlo_3.png" id="19_ym3tv"]
 [ext_resource type="Texture2D" uid="uid://chlrf6rdcddxc" path="res://Graphics/lampa_2.png" id="20_6uxt2"]
+[ext_resource type="Texture2D" uid="uid://dpfrdivq38qbd" path="res://Graphics/swiatlo_2.png" id="20_i26dy"]
 [ext_resource type="FontFile" uid="uid://rnvglsoiqhg6" path="res://Dreamy Summer.otf" id="21_exi56"]
 [ext_resource type="Texture2D" uid="uid://dvhvt0vxx6dec" path="res://Graphics/lampa_n_3.png" id="21_ym3tv"]
 [ext_resource type="Texture2D" uid="uid://ddw3qhxlketqp" path="res://Graphics/ramka.png" id="22_7t8sx"]
+[ext_resource type="Texture2D" uid="uid://cpo05a36yq6w1" path="res://Graphics/swiatlo_1.png" id="23_lmoi6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8m3t6"]
 animations = [{
@@ -384,11 +388,24 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("13_cwurv")
 
 [node name="Lampa3" type="Area2D" parent="lvl3" unique_id=666135868]
+collision_layer = 2
 
 [node name="lampa3" type="AnimatedSprite2D" parent="lvl3/Lampa3" unique_id=1508717785]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8m3t6")
 animation = &"off"
+frame_progress = 0.23770459
+
+[node name="light3" type="Node2D" parent="lvl3/Lampa3" unique_id=2063586162]
+visible = false
+scale = Vector2(0.5, 0.5)
+
+[node name="Lampa33" type="Sprite2D" parent="lvl3/Lampa3/light3" unique_id=1986134606]
+texture = ExtResource("18_i26dy")
+
+[node name="Swiatlo3" type="Sprite2D" parent="lvl3/Lampa3/light3" unique_id=1040337638]
+position = Vector2(0, 2174)
+texture = ExtResource("16_6uxt2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl3/Lampa3" unique_id=653900346]
 position = Vector2(-599, 278)
@@ -396,11 +413,23 @@ shape = SubResource("CapsuleShape2D_gcx2g")
 debug_color = Color(0.83676505, 0.30148888, 0.6239188, 0.41960785)
 
 [node name="Lampa1" type="Area2D" parent="lvl3" unique_id=16430285]
+collision_layer = 2
 
 [node name="lampa1" type="AnimatedSprite2D" parent="lvl3/Lampa1" unique_id=569457770]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8rscd")
 animation = &"off"
+
+[node name="lighti1" type="Node2D" parent="lvl3/Lampa1" unique_id=1682056000]
+visible = false
+
+[node name="Swiatlo1" type="Sprite2D" parent="lvl3/Lampa1/lighti1" unique_id=1466431368]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_ym3tv")
+
+[node name="Lampa11" type="Sprite2D" parent="lvl3/Lampa1/lighti1" unique_id=2041054999]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_tgy6u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl3/Lampa1" unique_id=1905414453]
 position = Vector2(-537, -346)
@@ -408,6 +437,7 @@ shape = SubResource("CapsuleShape2D_gcx2g")
 debug_color = Color(0.83676505, 0.30148888, 0.6239188, 0.41960785)
 
 [node name="Lampa2" type="Area2D" parent="lvl3" unique_id=2084201811]
+collision_layer = 2
 
 [node name="lampa2" type="AnimatedSprite2D" parent="lvl3/Lampa2" unique_id=1461249591]
 scale = Vector2(0.5, 0.5)
@@ -419,7 +449,19 @@ position = Vector2(-132, -352)
 shape = SubResource("CapsuleShape2D_gcx2g")
 debug_color = Color(0.83676505, 0.30148888, 0.6239188, 0.41960785)
 
+[node name="loght2" type="Node2D" parent="lvl3/Lampa2" unique_id=1971781988]
+visible = false
+
+[node name="Lamp22" type="Sprite2D" parent="lvl3/Lampa2/loght2" unique_id=1640977528]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_xe308")
+
+[node name="Swiatlo2" type="Sprite2D" parent="lvl3/Lampa2/loght2" unique_id=1534335699]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_i26dy")
+
 [node name="Lampa4" type="Area2D" parent="lvl3" unique_id=1759462680]
+collision_layer = 2
 
 [node name="lampa4" type="AnimatedSprite2D" parent="lvl3/Lampa4" unique_id=771326583]
 scale = Vector2(0.5, 0.5)
@@ -430,6 +472,17 @@ animation = &"off"
 position = Vector2(682, 273)
 shape = SubResource("CapsuleShape2D_gcx2g")
 debug_color = Color(0.83676505, 0.30148888, 0.6239188, 0.41960785)
+
+[node name="light4" type="Node2D" parent="lvl3/Lampa4" unique_id=1816478040]
+visible = false
+
+[node name="Lampa44" type="Sprite2D" parent="lvl3/Lampa4/light4" unique_id=1331659235]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_6uxt2")
+
+[node name="Swiatlo4" type="Sprite2D" parent="lvl3/Lampa4/light4" unique_id=459272230]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_lmoi6")
 
 [node name="collisions" type="StaticBody2D" parent="." unique_id=1469257701]
 collision_layer = 2
@@ -624,7 +677,7 @@ polygon = PackedVector2Array(1620, 490, 1533, 490, 1530, 848, 1608, 848)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions" unique_id=845197648]
 position = Vector2(4, 6)
-polygon = PackedVector2Array(-17, 3385, 1074, 3424, 1076, 3258, 1589, 3258, 1575, 2456, 1067, 2447, 1058.3734, 2719.0098, -25, 2723, -6, 3411, -276, 3411, -335, 2359, 267.9548, 2368.5947, 1676, 2391, 1719, 3494, -152, 3473)
+polygon = PackedVector2Array(1071, 3451, 1067, 3251, 1585, 3254, 1564, 2336, 1040, 2408, 1064, 2729, -17, 2716, 1, 3403, 1047, 3410, 988, 3631, -279, 3499, -148, 2412, 1337, 2312, 1799, 2315, 1772, 3565)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions" unique_id=342373537]
 polygon = PackedVector2Array(301, 1456, 301, 1728, 492, 1728, 490.25, 1628.2512, 606, 1628, 695, 1547, 836, 1589, 953, 1508, 487, 1443)
