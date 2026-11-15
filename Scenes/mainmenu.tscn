@@ -43,7 +43,8 @@ layout_mode = 2
 
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=635517925]
 layout_mode = 2
-text = "start"
+text = "Start
+"
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="." unique_id=1213218602]
 stream = ExtResource("2_web8u")

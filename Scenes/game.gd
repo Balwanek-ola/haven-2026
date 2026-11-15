@@ -15,6 +15,8 @@ var level: int = 1
 @export var plakat_2: Sprite2D
 @export var plakat_3: Sprite2D
 @export var pinpad: Sprite2D
+@export var ending_screen: Sprite2D
+
 
 var end: bool = false
 
@@ -22,6 +24,7 @@ var cdoor_open: bool = false
 
 
 func _ready() -> void:
+	ending_screen.visible = false
 	$UI/HBoxContainer/InputCode.visible = false
 	$UI/ItemView/Poster1.visible = false
 	$UI/ItemView/Poster2.visible = false
@@ -201,7 +204,9 @@ func _on_end_body_entered(body: Node2D) -> void:
 	if end:
 		glanim.play("fade_out")
 		player.stop = true
+		ending_screen.visible = true
 		$UI/Label2.text = "Zajęło ci to " + str(Global.loops) + " pętli"
 		$UI/Label2.visible = true
 		$UI/Label.visible = true
-		
+		await get_tree().create_timer(5.0).timeout
+		get_tree().change_scene_to_file("res://Scenes/mainmenu.tscn")

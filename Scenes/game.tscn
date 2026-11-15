@@ -40,6 +40,8 @@
 [ext_resource type="Texture2D" uid="uid://dvhvt0vxx6dec" path="res://Graphics/lampa_n_3.png" id="21_ym3tv"]
 [ext_resource type="Texture2D" uid="uid://ddw3qhxlketqp" path="res://Graphics/ramka.png" id="22_7t8sx"]
 [ext_resource type="Texture2D" uid="uid://cpo05a36yq6w1" path="res://Graphics/swiatlo_1.png" id="23_lmoi6"]
+[ext_resource type="Texture2D" uid="uid://b234wwcd5jj11" path="res://ending screen.png" id="40_bu0y5"]
+[ext_resource type="AudioStream" uid="uid://ctnqwwmb7wy4c" path="res://bgmplay.wav" id="41_f3c8l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8m3t6"]
 animations = [{
@@ -357,7 +359,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuhkv"]
 size = Vector2(418, 278)
 
-[node name="game" type="Node2D" unique_id=107325764 node_paths=PackedStringArray("lawki1", "lawki2", "lawki3", "biorko", "popup", "glanim", "bounceTimer", "drzwi", "plakat_1", "plakat_2", "plakat_3", "pinpad")]
+[node name="game" type="Node2D" unique_id=107325764 node_paths=PackedStringArray("lawki1", "lawki2", "lawki3", "biorko", "popup", "glanim", "bounceTimer", "drzwi", "plakat_1", "plakat_2", "plakat_3", "pinpad", "ending_screen")]
 script = ExtResource("1_3dryh")
 lawki1 = NodePath("lawki/Lawki1")
 lawki2 = NodePath("lawki/Lawki2")
@@ -371,6 +373,7 @@ plakat_1 = NodePath("interactables/Poster1/Plakat1")
 plakat_2 = NodePath("interactables/Poster2/Plakat2")
 plakat_3 = NodePath("interactables/Poster3/Plakat3")
 pinpad = NodePath("interactables/CodeDoor/CollisionShape2D/Pinpad")
+ending_screen = NodePath("EndingScreen")
 
 [node name="map" type="Node2D" parent="." unique_id=18186117]
 z_index = -10
@@ -971,14 +974,21 @@ text = "Brawo! Udało ci się uciec ze snu!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1630566595]
-
 [node name="END" type="Area2D" parent="." unique_id=1682017686]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="END" unique_id=934792631]
 position = Vector2(1323, 2619)
 shape = SubResource("RectangleShape2D_fuhkv")
 debug_color = Color(0.79460377, 0.4258787, 0, 0.41960785)
+
+[node name="EndingScreen" type="Sprite2D" parent="." unique_id=626079071]
+visible = false
+position = Vector2(578, 326)
+texture = ExtResource("40_bu0y5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=669505141]
+stream = ExtResource("41_f3c8l")
+autoplay = true
 
 [connection signal="body_entered" from="lvl3/Lampa3" to="." method="_on_lampa_3_body_entered"]
 [connection signal="body_exited" from="lvl3/Lampa3" to="." method="_on_lampa_3_body_exited"]
