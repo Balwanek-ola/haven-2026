@@ -1,0 +1,78 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://vojgn8es2yfp"]
+
+[ext_resource type="Texture2D" uid="uid://b7uhiufs76ue1" path="res://Graphics/walk/sprite_front_standing.png" id="1_3jhhh"]
+[ext_resource type="Texture2D" uid="uid://xof83ikudk58" path="res://Graphics/walk/sprite_front_1.png" id="2_xi7kr"]
+[ext_resource type="Texture2D" uid="uid://d25kfvr7w7tex" path="res://Graphics/walk/sprite_front_2.png" id="3_5bn56"]
+[ext_resource type="Texture2D" uid="uid://tdcm7o7iusem" path="res://Graphics/walk/sprite_left_1.png" id="4_s1r12"]
+[ext_resource type="Texture2D" uid="uid://sppoh5v70fs2" path="res://Graphics/walk/sprite_right_1.png" id="5_kksw8"]
+[ext_resource type="Texture2D" uid="uid://dl8yduqkhfqs1" path="res://Graphics/walk/sprite_back_1.png" id="6_s0ha2"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3jhhh")
+}],
+"loop": 1,
+"name": &"stand_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3jhhh")
+}],
+"loop": 1,
+"name": &"stand_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3jhhh")
+}],
+"loop": 1,
+"name": &"stand_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3jhhh")
+}],
+"loop": 1,
+"name": &"stand_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 8.0,
+"texture": ExtResource("2_xi7kr")
+}, {
+"duration": 8.0,
+"texture": ExtResource("3_5bn56")
+}],
+"loop": 1,
+"name": &"walk_front",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_s1r12")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kksw8")
+}],
+"loop": 1,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_s0ha2")
+}],
+"loop": 1,
+"name": &"walk_up",
+"speed": 5.0
+}]

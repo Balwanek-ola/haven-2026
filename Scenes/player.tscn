@@ -1,20 +1,88 @@
 [gd_scene format=3 uid="uid://c6dxj136q674c"]
 
 [ext_resource type="Script" uid="uid://ijlptdwfbsvn" path="res://Scenes/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://bukcmboa0wrrx" path="res://icon.svg" id="2_6t5aa"]
+[ext_resource type="SpriteFrames" uid="uid://vojgn8es2yfp" path="res://Graphics/walk/walk.tres" id="2_cvnsp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rscd"]
-size = Vector2(39, 24)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+radius = 13.0
+height = 74.0
+
+[sub_resource type="Animation" id="Animation_cvnsp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3, -80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.38, 0.38)]
+}
+
+[sub_resource type="Animation" id="Animation_6t5aa"]
+resource_name = "wave"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-3, -80), Vector2(-3, -90), Vector2(-3, -80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.38, 0.38), Vector2(0.37, 0.38), Vector2(0.38, 0.38)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vgqql"]
+_data = {
+&"RESET": SubResource("Animation_cvnsp"),
+&"wave": SubResource("Animation_6t5aa")
+}
 
 [node name="player" type="CharacterBody2D" unique_id=1547443021]
 collision_mask = 254
 script = ExtResource("1_cvnsp")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=178475012]
-position = Vector2(-1, -64)
-scale = Vector2(0.3125, 1)
-texture = ExtResource("2_6t5aa")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2123430980]
+position = Vector2(-3, -80)
+scale = Vector2(0.38, 0.38)
+sprite_frames = ExtResource("2_cvnsp")
+animation = &"walk_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1806616637]
-position = Vector2(1, -14)
-shape = SubResource("RectangleShape2D_8rscd")
+position = Vector2(0, -13)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_cvnsp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=123463520]
+libraries/ = SubResource("AnimationLibrary_vgqql")

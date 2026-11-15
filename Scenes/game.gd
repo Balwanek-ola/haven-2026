@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var level: int = 1
 @onready var player = $player
 @export var lawki1: Sprite2D
@@ -7,16 +8,22 @@ var level: int = 1
 @export var lawki3: Sprite2D
 @export var biorko: Sprite2D
 @export var popup: Node2D
-
+@export var glanim: AnimationPlayer
 
 func _ready() -> void:
+	player.stop = true
 	level = 1
 	$player/Camera2D.limit_left = 0
 	$player/Camera2D.limit_top = 0
 	$player/Camera2D.limit_right = 1600
 	$player/Camera2D.limit_bottom = 975
+	_start()
 
-
+func _start():
+	glanim.play("fade_in")
+	await get_tree().create_timer(1).timeout
+	player.stop = false
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if level ==1:
@@ -27,7 +34,7 @@ func _process(delta: float) -> void:
 
 
 func _on_bounce_timer_timeout() -> void:
-	$UI/AnimationPlayer.play("fade_out")
+	glanim.play("fade_out")
 	await get_tree().create_timer(1).timeout
 	get_tree().reload_current_scene()
 

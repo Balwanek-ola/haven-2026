@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 @onready var game = $".."
 const SPEED = 200.0
-const SPRINT = 1.5
+const SPRINT = 2
 var cursprint = 1.0
 var stop = false
+var direction: Vector2
 
 var interact: String = ""
 
@@ -12,18 +13,29 @@ func _physics_process(delta: float) -> void:
 	var input_vector:= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if Input.is_action_pressed("sprint"):
 		cursprint = SPRINT
+	if Input.is_action_just_pressed("anyomove"):
+		direction = input_vector
+	if not stop:
+		if input_vector.x == -1: $AnimatedSprite2D.play("walk_left")
+		if input_vector.x == 1: $AnimatedSprite2D.play("walk_right")
+		if input_vector.y == -1: $AnimatedSprite2D.play("walk_up")
+		if input_vector.y == 1: $AnimatedSprite2D.play("walk_front")
+	
+	if not stop and input_vector == Vector2(0, 0): 
+		$AnimationPlayer.play("RESET")
+		if direction.x == -1: $AnimatedSprite2D.play("stand_left")
+		if direction.x == 1: $AnimatedSprite2D.play("stand_right")
+		if direction.y == -1: $AnimatedSprite2D.play("stand_up")
+		if direction.y == 1: $AnimatedSprite2D.play("stand_front")
+	
 	else:
 		cursprint = 1.0
 	if stop == false:
 		velocity = input_vector * SPEED * cursprint
-		if input_vector != null:
-			if input_vector.x > 0:
-				$Icon.flip_h = true
-			elif input_vector.x < 0:
-				$Icon.flip_h = false
 		
 		if not stop:
 			move_and_slide()
+			$AnimationPlayer.play("wave")
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("interact"):
@@ -36,6 +48,3 @@ func _process(delta: float) -> void:
 				$Camera2D.limit_right = 1600
 				$Camera2D.limit_bottom = 2203.0
 				interact = ""
-			"":
-				game.pop_up("fart", game.player.position)
-				
