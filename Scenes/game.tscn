@@ -932,7 +932,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="BounceTimer" type="Timer" parent="UI" unique_id=803823199]
-wait_time = 120.0
+wait_time = 100.0
 
 [node name="Control" type="Control" parent="UI" unique_id=57987826]
 layout_mode = 3
@@ -946,6 +946,30 @@ grow_vertical = 2
 position = Vector2(576.6704, 325)
 scale = Vector2(0.36038056, 0.3296146)
 texture = ExtResource("22_7t8sx")
+
+[node name="Label" type="Label" parent="UI" unique_id=1999927280]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Brawo! Udało ci się uciec ze snu!
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI" unique_id=1772544602]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Brawo! Udało ci się uciec ze snu!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1630566595]
 

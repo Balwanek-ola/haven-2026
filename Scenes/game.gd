@@ -201,4 +201,7 @@ func _on_end_body_entered(body: Node2D) -> void:
 	if end:
 		glanim.play("fade_out")
 		player.stop = true
+		$UI/Label2.text = "Zajęło ci to " + str(Global.loops) + " pętli"
+		$UI/Label2.visible = true
+		$UI/Label.visible = true
 		
