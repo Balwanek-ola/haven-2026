@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://cajyiwdvveess" path="res://Graphics/poster2.png" id="13_nnt18"]
 [ext_resource type="Texture2D" uid="uid://cb7k01n0kkifb" path="res://Graphics/pinpad.webp" id="14_7nbq1"]
 [ext_resource type="Texture2D" uid="uid://d3ap7x732xuf2" path="res://Graphics/poster3.png" id="14_ewbju"]
+[ext_resource type="FontFile" uid="uid://rnvglsoiqhg6" path="res://Dreamy Summer.otf" id="21_exi56"]
+[ext_resource type="Texture2D" uid="uid://ddw3qhxlketqp" path="res://Graphics/ramka.png" id="22_7t8sx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rscd"]
 size = Vector2(1931, 50)
@@ -218,6 +220,7 @@ plakat_3 = NodePath("interactables/Poster3/Plakat3")
 pinpad = NodePath("interactables/CodeDoor/CollisionShape2D/Pinpad")
 
 [node name="map" type="Node2D" parent="." unique_id=18186117]
+z_index = -10
 
 [node name="Lvl1" type="Sprite2D" parent="map" unique_id=739332757]
 position = Vector2(807, 494)
@@ -459,12 +462,13 @@ polygon = PackedVector2Array(1295, 322, 1294, 514, 1413, 517, 1413, 463, 1462, 4
 polygon = PackedVector2Array(1620, 490, 1533, 490, 1530, 848, 1608, 848)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions" unique_id=845197648]
-polygon = PackedVector2Array(-81, 3439, 1083, 3448, 1080, 3332, 1595, 3332, 1604, 2717, -25, 2723, -6, 3411, -276, 3411, -335, 2359, 1676, 2391, 1719, 3494, -152, 3473)
+polygon = PackedVector2Array(-81, 3439, 1083, 3448, 1080, 3332, 1595, 3332, 1575, 2456, 1067, 2447, 1058.3734, 2719.0098, -25, 2723, -6, 3411, -276, 3411, -335, 2359, 1676, 2391, 1719, 3494, -152, 3473)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions" unique_id=342373537]
 polygon = PackedVector2Array(301, 1456, 301, 1728, 492, 1728, 487, 1443)
 
 [node name="interactables" type="Node2D" parent="." unique_id=922406974]
+z_index = -5
 
 [node name="Poster1" type="Area2D" parent="interactables" unique_id=933260047]
 
@@ -538,6 +542,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 offset_transform_enabled = true
 text = "fart"
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="popup" unique_id=1994644698]
 libraries/ = SubResource("AnimationLibrary_rku1e")
@@ -591,6 +596,7 @@ layout_mode = 2
 theme = ExtResource("11_o5yvi")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7647059)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_exi56")
 text = "fgfgffgfg"
 horizontal_alignment = 1
 
@@ -614,6 +620,19 @@ color = Color(0, 0, 0, 0)
 
 [node name="BounceTimer" type="Timer" parent="UI" unique_id=803823199]
 wait_time = 45.0
+
+[node name="Control" type="Control" parent="UI" unique_id=57987826]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ramka" type="Sprite2D" parent="UI/Control" unique_id=1158038419]
+position = Vector2(576.6704, 325)
+scale = Vector2(0.36038056, 0.3296146)
+texture = ExtResource("22_7t8sx")
 
 [node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1630566595]
 

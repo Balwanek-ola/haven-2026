@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://br3ky7e17y8ws" path="res://Scenes/mainmenu.gd" id="1_pposm"]
 [ext_resource type="Texture2D" uid="uid://dufo7j8uldpro" path="res://main menu.png" id="2_rtnl3"]
 [ext_resource type="AudioStream" uid="uid://dqdcpbm6q02k2" path="res://267711__weejee_vdh__picking-up-keys.wav" id="2_web8u"]
+[ext_resource type="FontFile" uid="uid://c0ixahrgwh5ry" path="res://Flowers Kingdom.ttf" id="4_v4pkt"]
 
 [node name="mainmenu" type="Control" unique_id=1452394963]
 layout_mode = 3
@@ -36,6 +37,10 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=1506004254]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=635517925]
 layout_mode = 2
 text = "start"
@@ -46,5 +51,20 @@ text = "tutorial"
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="." unique_id=1213218602]
 stream = ExtResource("2_web8u")
+
+[node name="Label" type="Label" parent="." unique_id=957821440]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 305.0
+offset_right = 893.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0.8510946, 0.40237424, 7.70092e-07, 1)
+theme_override_colors/font_shadow_color = Color(0.66821206, 0.2903437, 0.11417774, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 22
+theme_override_constants/shadow_outline_size = 27
+theme_override_fonts/font = ExtResource("4_v4pkt")
+theme_override_font_sizes/font_size = 50
+text = "YET ANOTHER DREAM"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]

@@ -98,10 +98,10 @@ func _on_code_door_body_exited(body: Node2D) -> void:
 
 func _on_input_code_text_submitted(code: String) -> void:
 	if code == "fart":
-		pop_up("Dobry kod! Nacisnij 'e' ponownie.", Vector2(500,1800))
+		pop_up("Dobry kod! Drzwi otwarte", Vector2(600,1800))
 		cdoor_open = true
 	else:
-		pop_up("Zły kod", Vector2(500,1800))
+		pop_up("Zły kod", Vector2(player.position.x,player.position.y - 200))
 	player.stop = false
 	$UI/HBoxContainer/InputCode.visible = false
 	$UI/HBoxContainer/InputCode.text = ""

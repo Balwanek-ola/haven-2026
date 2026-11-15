@@ -52,40 +52,42 @@ func _process(delta: float) -> void:
 			"poster3":
 				$"../UI/ItemView/Poster3".visible = false
 				stop = false
+		
 	if Input.is_action_just_pressed("interact"):
-		match interact:
-			"door":
-				self.position = Vector2(50,1807.313)
-				$"..".level +=1
-				$Camera2D.limit_left = 0
-				$Camera2D.limit_top = 1267.0
-				$Camera2D.limit_right = 1600
-				$Camera2D.limit_bottom = 2203.0
-				interact = ""
-			"code_door":
-				if not game.cdoor_open:
-					stop = true
-					$"../UI/HBoxContainer/InputCode".visible = true
-					$"../UI/HBoxContainer/InputCode".edit()
-				else:
-					self.position = Vector2(50,3000)
+		if not view_item:
+			match interact:
+				"door":
+					self.position = Vector2(50,1807.313)
 					$"..".level +=1
 					$Camera2D.limit_left = 0
-					$Camera2D.limit_top = 2460
+					$Camera2D.limit_top = 1267.0
 					$Camera2D.limit_right = 1600
-					$Camera2D.limit_bottom = 3450
-			"poster1":
-				stop = true
-				view_item = true
-				$"../UI/ItemView/Poster1".visible = true
-			"poster2":
-				stop = true
-				view_item = true
-				$"../UI/ItemView/Poster2".visible = true
-			"poster3":
-				stop = true
-				view_item = true
-				$"../UI/ItemView/Poster3".visible = true
+					$Camera2D.limit_bottom = 2203.0
+					interact = ""
+				"code_door":
+					if not game.cdoor_open:
+						stop = true
+						$"../UI/HBoxContainer/InputCode".visible = true
+						$"../UI/HBoxContainer/InputCode".edit()
+					else:
+						self.position = Vector2(50,3000)
+						$"..".level +=1
+						$Camera2D.limit_left = 0
+						$Camera2D.limit_top = 2460
+						$Camera2D.limit_right = 1600
+						$Camera2D.limit_bottom = 3450
+				"poster1":
+					stop = true
+					view_item = true
+					$"../UI/ItemView/Poster1".visible = true
+				"poster2":
+					stop = true
+					view_item = true
+					$"../UI/ItemView/Poster2".visible = true
+				"poster3":
+					stop = true
+					view_item = true
+					$"../UI/ItemView/Poster3".visible = true
 					
 					
 				
