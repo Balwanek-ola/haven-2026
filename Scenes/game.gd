@@ -11,7 +11,11 @@ var level: int = 1
 @export var glanim: AnimationPlayer
 @export var bounceTimer: Timer
 
+var cdoor_open: bool = false
+
+
 func _ready() -> void:
+	$UI/HBoxContainer/InputCode.visible = false
 	player.stop = true
 	level = 1
 	$player/Camera2D.limit_left = 0
@@ -61,3 +65,23 @@ func pop_up(text: String, pos: Vector2):
 	popup.label.text = text
 	popup.aniplay.play("popup")
 	
+
+
+func _on_code_door_body_entered(body: Node2D) -> void:
+	if body == player:
+		$interactables/Door.modulate = Color(0.0, 0.824, 0.663, 1.0)
+		player.interact = "code_door"
+
+
+func _on_code_door_body_exited(body: Node2D) -> void:
+	if body == player:
+		$interactables/Door.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		player.interact = ""
+
+
+func _on_input_code_text_submitted(code: String) -> void:
+	if code == "fart":
+		cdoor_open = true
+	player.stop = false
+	$UI/HBoxContainer/InputCode.visible = false
+	$UI/HBoxContainer/InputCode.text = ""

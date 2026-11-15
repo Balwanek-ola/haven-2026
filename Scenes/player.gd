@@ -50,3 +50,19 @@ func _process(delta: float) -> void:
 				$Camera2D.limit_right = 1600
 				$Camera2D.limit_bottom = 2203.0
 				interact = ""
+			"code_door":
+				if not game.cdoor_open:
+					stop = true
+					$"../UI/HBoxContainer/InputCode".visible = true
+					$"../UI/HBoxContainer/InputCode".edit()
+				else:
+					self.position = Vector2(50,3000)
+					$"..".level +=1
+					$Camera2D.limit_left = 0
+					$Camera2D.limit_top = 2460
+					$Camera2D.limit_right = 1600
+					$Camera2D.limit_bottom = 3450
+					
+					
+				
+				
