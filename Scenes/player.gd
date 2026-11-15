@@ -13,6 +13,8 @@ func _physics_process(delta: float) -> void:
 	var input_vector:= Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if Input.is_action_pressed("sprint"):
 		cursprint = SPRINT
+	else:
+		cursprint = 1.0
 	if Input.is_action_just_pressed("anyomove"):
 		direction = input_vector
 	if not stop:

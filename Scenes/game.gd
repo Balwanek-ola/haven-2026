@@ -9,6 +9,7 @@ var level: int = 1
 @export var biorko: Sprite2D
 @export var popup: Node2D
 @export var glanim: AnimationPlayer
+@export var bounceTimer: Timer
 
 func _ready() -> void:
 	player.stop = true
@@ -22,6 +23,7 @@ func _ready() -> void:
 func _start():
 	glanim.play("fade_in")
 	await get_tree().create_timer(1).timeout
+	bounceTimer.start()
 	player.stop = false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,6 +36,7 @@ func _process(delta: float) -> void:
 
 
 func _on_bounce_timer_timeout() -> void:
+	bounceTimer.stop()
 	glanim.play("fade_out")
 	await get_tree().create_timer(1).timeout
 	get_tree().reload_current_scene()
