@@ -201,3 +201,4 @@ func _on_end_body_entered(body: Node2D) -> void:
 	if end:
 		glanim.play("fade_out")
 		player.stop = true
+		

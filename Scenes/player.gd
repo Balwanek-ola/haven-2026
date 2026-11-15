@@ -8,6 +8,7 @@ var stop = false
 var view_item: bool = false
 var direction: Vector2
 
+var lampson: Vector4 = Vector4(0, 0, 0, 0)
 var lampykklucz = [1, 3, 2, 4]
 var lapmgracz= []
 
@@ -94,21 +95,36 @@ func _process(delta: float) -> void:
 					view_item = true
 					$"../UI/ItemView/Poster3".visible = true
 				"lampa_1":
-					$"../lvl3/Lampa1/lighti1".visible = true
-					lapmgracz.append(1)
+					if lampson.x == 0:
+						$"../lvl3/Lampa1/lighti1".visible = true
+						lapmgracz.append(1)
+						lampson.x = 1
 				"lampa_2":
-					$"../lvl3/Lampa2/loght2".visible= true
-					lapmgracz.append(2)
+					if lampson.y == 0:
+						$"../lvl3/Lampa2/loght2".visible= true
+						lapmgracz.append(2)
+						lampson.y = 1
 				"lampa_3":
-					$"../lvl3/Lampa3/light3".visible=true
-					lapmgracz.append(3)
+					if lampson.z == 0:
+						$"../lvl3/Lampa3/light3".visible=true
+						lapmgracz.append(3)
+						lampson.z = 1
 				"lampa_4":
-					$"../lvl3/Lampa4/light4".visible=true
-					lapmgracz.append(4)
+					if lampson.w == 0:
+						$"../lvl3/Lampa4/light4".visible=true
+						lapmgracz.append(4)
+						lampson.w = 1
 			if len(lapmgracz) == 4:
 				if lampykklucz==lapmgracz:
 					game.glanim.play("swiatlo")
 					game.end = true
+				else:
+					lapmgracz = []
+					lampson = Vector4(0, 0, 0 ,0)
+					$"../lvl3/Lampa1/lighti1".visible = false
+					$"../lvl3/Lampa2/loght2".visible= false
+					$"../lvl3/Lampa3/light3".visible=false
+					$"../lvl3/Lampa4/light4".visible=false
 					
 					
 				
