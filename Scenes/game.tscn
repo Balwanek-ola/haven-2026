@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://dsmgodk8bmm0u" path="res://Graphics/lawki3.png" id="6_h4fw4"]
 [ext_resource type="Script" uid="uid://c7gxq110bncf8" path="res://Scenes/popup.gd" id="9_ldgsr"]
 [ext_resource type="Theme" uid="uid://dcpp3homyxayq" path="res://Graphics/themes/timer.tres" id="11_o5yvi"]
+[ext_resource type="Texture2D" uid="uid://kv6ofotyuao2" path="res://Graphics/poster1.png" id="12_nb51f"]
+[ext_resource type="Texture2D" uid="uid://cajyiwdvveess" path="res://Graphics/poster2.png" id="13_nnt18"]
+[ext_resource type="Texture2D" uid="uid://d3ap7x732xuf2" path="res://Graphics/poster3.png" id="14_ewbju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rscd"]
 size = Vector2(1931, 50)
@@ -24,6 +27,9 @@ size = Vector2(89.5, 114)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcx2g"]
 size = Vector2(165, 961.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opl3t"]
+size = Vector2(280, 256)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rscd"]
 radius = 166.0271
@@ -220,6 +226,7 @@ texture = ExtResource("4_rku1e")
 
 [node name="player" parent="." unique_id=1547443021 instance=ExtResource("1_ebmjs")]
 position = Vector2(526.05, 567.395)
+scale = Vector2(0.9, 1)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1935067067]
 limit_left = 0
@@ -444,7 +451,31 @@ polygon = PackedVector2Array(1620, 490, 1533, 490, 1530, 848, 1608, 848)
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions" unique_id=845197648]
 polygon = PackedVector2Array(-81, 3439, 1083, 3448, 1080, 3332, 1595, 3332, 1604, 2717, -25, 2723, -6, 3411, -276, 3411, -335, 2359, 1676, 2391, 1719, 3494, -152, 3473)
 
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions" unique_id=342373537]
+polygon = PackedVector2Array(301, 1456, 301, 1728, 492, 1728, 487, 1443)
+
 [node name="interactables" type="Node2D" parent="." unique_id=922406974]
+
+[node name="Poster1" type="Area2D" parent="interactables" unique_id=933260047]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactables/Poster1" unique_id=753252982]
+position = Vector2(134, 1468)
+shape = SubResource("RectangleShape2D_opl3t")
+debug_color = Color(0.7956861, 0.34018487, 0.6572328, 0.41960785)
+
+[node name="Poster2" type="Area2D" parent="interactables" unique_id=641651294]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="interactables/Poster2" unique_id=1495460242]
+position = Vector2(996, 1457)
+shape = SubResource("RectangleShape2D_opl3t")
+debug_color = Color(0.7956861, 0.34018487, 0.6572328, 0.41960785)
+
+[node name="Poster3" type="Area2D" parent="interactables" unique_id=1642432790]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="interactables/Poster3" unique_id=1204528932]
+position = Vector2(1290, 1459)
+shape = SubResource("RectangleShape2D_opl3t")
+debug_color = Color(0.7956861, 0.34018487, 0.6572328, 0.41960785)
 
 [node name="Door" type="Area2D" parent="interactables" unique_id=1365038037]
 
@@ -478,6 +509,32 @@ libraries/ = SubResource("AnimationLibrary_rku1e")
 [node name="UI" type="CanvasLayer" parent="." unique_id=1022639983]
 layer = 100
 script = ExtResource("3_wrm1d")
+
+[node name="ItemView" type="Control" parent="UI" unique_id=1916832051]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Poster1" type="Sprite2D" parent="UI/ItemView" unique_id=1152955091]
+visible = false
+position = Vector2(593, 342)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("12_nb51f")
+
+[node name="Poster2" type="Sprite2D" parent="UI/ItemView" unique_id=1331874623]
+visible = false
+position = Vector2(581, 336)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("13_nnt18")
+
+[node name="Poster3" type="Sprite2D" parent="UI/ItemView" unique_id=367780706]
+visible = false
+position = Vector2(584, 336)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("14_ewbju")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="UI" unique_id=359623933]
 anchors_preset = 5
@@ -524,6 +581,12 @@ wait_time = 45.0
 
 [node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1630566595]
 
+[connection signal="body_entered" from="interactables/Poster1" to="." method="_on_poster_1_body_entered"]
+[connection signal="body_exited" from="interactables/Poster1" to="." method="_on_poster_1_body_exited"]
+[connection signal="body_entered" from="interactables/Poster2" to="." method="_on_poster_2_body_entered"]
+[connection signal="body_exited" from="interactables/Poster2" to="." method="_on_poster_2_body_exited"]
+[connection signal="body_entered" from="interactables/Poster3" to="." method="_on_poster_3_body_entered"]
+[connection signal="body_exited" from="interactables/Poster3" to="." method="_on_poster_3_body_exited"]
 [connection signal="body_entered" from="interactables/Door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="interactables/Door" to="." method="_on_door_body_exited"]
 [connection signal="body_entered" from="interactables/CodeDoor" to="." method="_on_code_door_body_entered"]

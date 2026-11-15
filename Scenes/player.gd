@@ -5,6 +5,7 @@ const SPEED = 200.0
 const SPRINT = 2
 var cursprint = 1.0
 var stop = false
+var view_item: bool = false
 var direction: Vector2
 
 var interact: String = ""
@@ -40,7 +41,18 @@ func _physics_process(delta: float) -> void:
 			$AnimationPlayer.play("wave")
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("interact"):
+	if view_item and Input.is_action_just_pressed("ui_cancel"):
+		match interact:
+			"poster1":
+				$"../UI/ItemView/Poster1".visible = false
+				stop = false
+			"poster2":
+				$"../UI/ItemView/Poster2".visible = false
+				stop = false
+			"poster3":
+				$"../UI/ItemView/Poster3".visible = false
+				stop = false
+	if Input.is_action_just_pressed("interact"):
 		match interact:
 			"door":
 				self.position = Vector2(50,1807.313)
@@ -62,6 +74,18 @@ func _process(delta: float) -> void:
 					$Camera2D.limit_top = 2460
 					$Camera2D.limit_right = 1600
 					$Camera2D.limit_bottom = 3450
+			"poster1":
+				stop = true
+				view_item = true
+				$"../UI/ItemView/Poster1".visible = true
+			"poster2":
+				stop = true
+				view_item = true
+				$"../UI/ItemView/Poster2".visible = true
+			"poster3":
+				stop = true
+				view_item = true
+				$"../UI/ItemView/Poster3".visible = true
 					
 					
 				

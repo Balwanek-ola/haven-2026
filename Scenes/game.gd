@@ -16,6 +16,9 @@ var cdoor_open: bool = false
 
 func _ready() -> void:
 	$UI/HBoxContainer/InputCode.visible = false
+	$UI/ItemView/Poster1.visible = false
+	$UI/ItemView/Poster2.visible = false
+	$UI/ItemView/Poster3.visible = false
 	player.stop = true
 	level = 1
 	$player/Camera2D.limit_left = 0
@@ -58,7 +61,7 @@ func _on_door_body_entered(body: Node2D) -> void:
 func _on_door_body_exited(body: Node2D) -> void:
 	if body == player:
 		$interactables/Door.modulate = Color(1.0, 1.0, 1.0, 1.0)
-		player.interact = ""
+		if player.interact == "door": player.interact = ""
 
 func pop_up(text: String, pos: Vector2):
 	popup.position = pos
@@ -76,7 +79,7 @@ func _on_code_door_body_entered(body: Node2D) -> void:
 func _on_code_door_body_exited(body: Node2D) -> void:
 	if body == player:
 		$interactables/Door.modulate = Color(1.0, 1.0, 1.0, 1.0)
-		player.interact = ""
+		if player.interact == "code_door":player.interact = ""
 
 
 func _on_input_code_text_submitted(code: String) -> void:
@@ -85,3 +88,37 @@ func _on_input_code_text_submitted(code: String) -> void:
 	player.stop = false
 	$UI/HBoxContainer/InputCode.visible = false
 	$UI/HBoxContainer/InputCode.text = ""
+
+
+func _on_poster_1_body_entered(body: Node2D) -> void:
+	if body == player:
+		$interactables/Door.modulate = Color(0.0, 0.824, 0.663, 1.0)
+		player.interact = "poster1"
+
+
+func _on_poster_1_body_exited(body: Node2D) -> void:
+	if body == player:
+		$interactables/Door.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		if player.interact == "poster1":player.interact = ""
+		
+func _on_poster_2_body_entered(body: Node2D) -> void:
+	if body == player:
+		$interactables/Door.modulate = Color(0.0, 0.824, 0.663, 1.0)
+		player.interact = "poster2"
+
+
+func _on_poster_2_body_exited(body: Node2D) -> void:
+	if body == player:
+		$interactables/Door.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		if player.interact == "poster2":player.interact = ""
+		
+func _on_poster_3_body_entered(body: Node2D) -> void:
+	if body == player:
+		$interactables/Door.modulate = Color(0.0, 0.824, 0.663, 1.0)
+		player.interact = "poster3"
+
+
+func _on_poster_3_body_exited(body: Node2D) -> void:
+	if body == player:
+		$interactables/Door.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		if player.interact == "poster3":player.interact = ""

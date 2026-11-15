@@ -4,8 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://vojgn8es2yfp" path="res://Graphics/walk/walk.tres" id="2_cvnsp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
-radius = 13.0
-height = 74.0
+radius = 6.0
+height = 70.0
 
 [sub_resource type="Animation" id="Animation_cvnsp"]
 length = 0.001
