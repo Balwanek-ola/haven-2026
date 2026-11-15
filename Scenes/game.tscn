@@ -394,7 +394,7 @@ collision_layer = 2
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8m3t6")
 animation = &"off"
-frame_progress = 0.23770459
+frame_progress = 0.30902287
 
 [node name="light3" type="Node2D" parent="lvl3/Lampa3" unique_id=2063586162]
 visible = false
@@ -404,7 +404,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("18_i26dy")
 
 [node name="Swiatlo3" type="Sprite2D" parent="lvl3/Lampa3/light3" unique_id=1040337638]
-position = Vector2(0, 2174)
+z_index = -5
 texture = ExtResource("16_6uxt2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl3/Lampa3" unique_id=653900346]
@@ -424,6 +424,7 @@ animation = &"off"
 visible = false
 
 [node name="Swiatlo1" type="Sprite2D" parent="lvl3/Lampa1/lighti1" unique_id=1466431368]
+z_index = -5
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_ym3tv")
 
@@ -457,6 +458,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("16_xe308")
 
 [node name="Swiatlo2" type="Sprite2D" parent="lvl3/Lampa2/loght2" unique_id=1534335699]
+z_index = -5
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("20_i26dy")
 
@@ -481,6 +483,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("20_6uxt2")
 
 [node name="Swiatlo4" type="Sprite2D" parent="lvl3/Lampa4/light4" unique_id=459272230]
+z_index = -5
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("23_lmoi6")
 
@@ -677,7 +680,7 @@ polygon = PackedVector2Array(1620, 490, 1533, 490, 1530, 848, 1608, 848)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions" unique_id=845197648]
 position = Vector2(4, 6)
-polygon = PackedVector2Array(1071, 3451, 1067, 3251, 1585, 3254, 1564, 2336, 1040, 2408, 1064, 2729, -17, 2716, 1, 3403, 1047, 3410, 988, 3631, -279, 3499, -148, 2412, 1337, 2312, 1799, 2315, 1772, 3565)
+polygon = PackedVector2Array(1071, 3451, 1067, 3251, 1585, 3254, 1564, 2336, 1040, 2408, 1063, 2750, -2, 2752, 1, 3403, 1047, 3410, 988, 3631, -279, 3499, -148, 2412, 1337, 2312, 1799, 2315, 1772, 3565)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions" unique_id=342373537]
 polygon = PackedVector2Array(301, 1456, 301, 1728, 492, 1728, 490.25, 1628.2512, 606, 1628, 695, 1547, 836, 1589, 953, 1508, 487, 1443)

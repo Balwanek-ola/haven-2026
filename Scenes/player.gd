@@ -90,14 +90,14 @@ func _process(delta: float) -> void:
 					stop = true
 					view_item = true
 					$"../UI/ItemView/Poster3".visible = true
-				"lampa1":
+				"lampa_1":
 					print("1")
 					$"../lvl3/Lampa1/lighti1".visible = true
-				"lampa2":
+				"lampa_2":
 					$"../lvl3/Lampa2/loght2".visible= true
-				"lampa3":
+				"lampa_3":
 					$"../lvl3/Lampa3/light3".visible=true
-				"lampa4":
+				"lampa_4":
 					$"../lvl3/Lampa4/light4".visible=true
 					
 					

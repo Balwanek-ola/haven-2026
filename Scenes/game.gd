@@ -42,6 +42,9 @@ func _start():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	player.scale = Vector2(1, 1.1) if level == 3 else Vector2(0.9, 1)
+		
 	if level ==1:
 		lawki3.z_index = -1 if player.position.y > 340 else 1
 		lawki2.z_index = -1 if player.position.y > 540 else 1
