@@ -88,6 +88,14 @@ func _process(delta: float) -> void:
 					stop = true
 					view_item = true
 					$"../UI/ItemView/Poster3".visible = true
+				"lampa1":
+					pass
+				"lampa2":
+					pass
+				"lampa3":
+					pass
+				"lampa4":
+					pass
 					
 					
 				

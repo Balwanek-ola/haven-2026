@@ -11,17 +11,109 @@
 [ext_resource type="Texture2D" uid="uid://cmncqsk4rdkuh" path="res://Graphics/lawki2.png" id="5_v158k"]
 [ext_resource type="Texture2D" uid="uid://dsmgodk8bmm0u" path="res://Graphics/lawki3.png" id="6_h4fw4"]
 [ext_resource type="Script" uid="uid://c7gxq110bncf8" path="res://Scenes/popup.gd" id="9_ldgsr"]
+[ext_resource type="Texture2D" uid="uid://cd6suedho3iam" path="res://Graphics/roslina1.png" id="10_fkdbe"]
 [ext_resource type="Texture2D" uid="uid://c2n45thtvftnm" path="res://Graphics/plakat_1.png" id="10_iivbl"]
 [ext_resource type="Texture2D" uid="uid://b8kybjbffo3cy" path="res://Scenes/drzwi.png" id="10_nnt18"]
 [ext_resource type="Texture2D" uid="uid://eg4pi82rkvg3" path="res://Graphics/plakat_2.png" id="11_7nbq1"]
+[ext_resource type="Texture2D" uid="uid://brb268iujmkrw" path="res://Graphics/roslina_2.png" id="11_81klo"]
 [ext_resource type="Theme" uid="uid://dcpp3homyxayq" path="res://Graphics/themes/timer.tres" id="11_o5yvi"]
 [ext_resource type="Texture2D" uid="uid://5md2b45hy0fp" path="res://Graphics/plakat_3.png" id="12_exi56"]
 [ext_resource type="Texture2D" uid="uid://kv6ofotyuao2" path="res://Graphics/poster1.png" id="12_nb51f"]
+[ext_resource type="Texture2D" uid="uid://bldcff0dasasy" path="res://Graphics/roslina_3.png" id="12_tgy6u"]
+[ext_resource type="Texture2D" uid="uid://dmgr3h6le7qm5" path="res://Graphics/roslina_4.png" id="13_cwurv"]
 [ext_resource type="Texture2D" uid="uid://cajyiwdvveess" path="res://Graphics/poster2.png" id="13_nnt18"]
 [ext_resource type="Texture2D" uid="uid://cb7k01n0kkifb" path="res://Graphics/pinpad.webp" id="14_7nbq1"]
 [ext_resource type="Texture2D" uid="uid://d3ap7x732xuf2" path="res://Graphics/poster3.png" id="14_ewbju"]
+[ext_resource type="Texture2D" uid="uid://sgf67xggdipo" path="res://Graphics/lampa_3.png" id="14_tgy6u"]
+[ext_resource type="Texture2D" uid="uid://ffg1bites137" path="res://Graphics/lampa_n_1.png" id="15_cwurv"]
+[ext_resource type="Texture2D" uid="uid://cunso16fnruq" path="res://Graphics/lampa_1.png" id="16_xe308"]
+[ext_resource type="Texture2D" uid="uid://kf8jcp6d4qjp" path="res://Graphics/lampa_n_2.png" id="17_d3cha"]
+[ext_resource type="Texture2D" uid="uid://dqq2l00pfhq8s" path="res://Graphics/lampa_4.png" id="18_i26dy"]
+[ext_resource type="Texture2D" uid="uid://dfabivm67op1q" path="res://Graphics/lampa_n_4.png" id="19_lmoi6"]
+[ext_resource type="Texture2D" uid="uid://chlrf6rdcddxc" path="res://Graphics/lampa_2.png" id="20_6uxt2"]
 [ext_resource type="FontFile" uid="uid://rnvglsoiqhg6" path="res://Dreamy Summer.otf" id="21_exi56"]
+[ext_resource type="Texture2D" uid="uid://dvhvt0vxx6dec" path="res://Graphics/lampa_n_3.png" id="21_ym3tv"]
 [ext_resource type="Texture2D" uid="uid://ddw3qhxlketqp" path="res://Graphics/ramka.png" id="22_7t8sx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8m3t6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_i26dy")
+}],
+"loop": 1,
+"name": &"light",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_lmoi6")
+}],
+"loop": 1,
+"name": &"off",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gcx2g"]
+radius = 154.0
+height = 438.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8rscd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_tgy6u")
+}],
+"loop": 1,
+"name": &"light",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_cwurv")
+}],
+"loop": 1,
+"name": &"off",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mucmn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_xe308")
+}],
+"loop": 1,
+"name": &"light",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_d3cha")
+}],
+"loop": 1,
+"name": &"off",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ese38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_6uxt2")
+}],
+"loop": 1,
+"name": &"light",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_ym3tv")
+}],
+"loop": 1,
+"name": &"off",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rscd"]
 size = Vector2(1931, 50)
@@ -270,6 +362,75 @@ position = Vector2(807, 384)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_h4fw4")
 
+[node name="lvl3" type="Node2D" parent="." unique_id=1423371934]
+position = Vector2(800, 2948)
+
+[node name="Node2D" type="Node2D" parent="lvl3" unique_id=1772770484]
+
+[node name="Roslina1" type="Sprite2D" parent="lvl3/Node2D" unique_id=1839365619]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_fkdbe")
+
+[node name="Roslina2" type="Sprite2D" parent="lvl3/Node2D" unique_id=812707146]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_81klo")
+
+[node name="Roslina3" type="Sprite2D" parent="lvl3/Node2D" unique_id=939005411]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_tgy6u")
+
+[node name="Roslina4" type="Sprite2D" parent="lvl3/Node2D" unique_id=1018185138]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_cwurv")
+
+[node name="Lampa3" type="Area2D" parent="lvl3" unique_id=666135868]
+
+[node name="lampa3" type="AnimatedSprite2D" parent="lvl3/Lampa3" unique_id=1508717785]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_8m3t6")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl3/Lampa3" unique_id=653900346]
+position = Vector2(-599, 278)
+shape = SubResource("CapsuleShape2D_gcx2g")
+debug_color = Color(0.83676505, 0.30148888, 0.6239188, 0.41960785)
+
+[node name="Lampa1" type="Area2D" parent="lvl3" unique_id=16430285]
+
+[node name="lampa1" type="AnimatedSprite2D" parent="lvl3/Lampa1" unique_id=569457770]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_8rscd")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl3/Lampa1" unique_id=1905414453]
+position = Vector2(-537, -346)
+shape = SubResource("CapsuleShape2D_gcx2g")
+debug_color = Color(0.83676505, 0.30148888, 0.6239188, 0.41960785)
+
+[node name="Lampa2" type="Area2D" parent="lvl3" unique_id=2084201811]
+
+[node name="lampa2" type="AnimatedSprite2D" parent="lvl3/Lampa2" unique_id=1461249591]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_mucmn")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl3/Lampa2" unique_id=1174746477]
+position = Vector2(-132, -352)
+shape = SubResource("CapsuleShape2D_gcx2g")
+debug_color = Color(0.83676505, 0.30148888, 0.6239188, 0.41960785)
+
+[node name="Lampa4" type="Area2D" parent="lvl3" unique_id=1759462680]
+
+[node name="lampa4" type="AnimatedSprite2D" parent="lvl3/Lampa4" unique_id=771326583]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ese38")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl3/Lampa4" unique_id=1435401527]
+position = Vector2(682, 273)
+shape = SubResource("CapsuleShape2D_gcx2g")
+debug_color = Color(0.83676505, 0.30148888, 0.6239188, 0.41960785)
+
 [node name="collisions" type="StaticBody2D" parent="." unique_id=1469257701]
 collision_layer = 2
 
@@ -462,10 +623,14 @@ polygon = PackedVector2Array(1295, 322, 1294, 514, 1413, 517, 1413, 463, 1462, 4
 polygon = PackedVector2Array(1620, 490, 1533, 490, 1530, 848, 1608, 848)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions" unique_id=845197648]
-polygon = PackedVector2Array(-81, 3439, 1083, 3448, 1080, 3332, 1595, 3332, 1575, 2456, 1067, 2447, 1058.3734, 2719.0098, -25, 2723, -6, 3411, -276, 3411, -335, 2359, 1676, 2391, 1719, 3494, -152, 3473)
+position = Vector2(4, 6)
+polygon = PackedVector2Array(-17, 3385, 1074, 3424, 1076, 3258, 1589, 3258, 1575, 2456, 1067, 2447, 1058.3734, 2719.0098, -25, 2723, -6, 3411, -276, 3411, -335, 2359, 267.9548, 2368.5947, 1676, 2391, 1719, 3494, -152, 3473)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions" unique_id=342373537]
-polygon = PackedVector2Array(301, 1456, 301, 1728, 492, 1728, 487, 1443)
+polygon = PackedVector2Array(301, 1456, 301, 1728, 492, 1728, 490.25, 1628.2512, 606, 1628, 695, 1547, 836, 1589, 953, 1508, 487, 1443)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="collisions" unique_id=1260707783]
+polygon = PackedVector2Array(986, 2212, 976, 2120, 893, 2126, 347, 2118, 341, 2214, 281, 2198, 287, 2104, 152, 2104, 152, 2214, 980, 2254)
 
 [node name="interactables" type="Node2D" parent="." unique_id=922406974]
 z_index = -5
@@ -636,6 +801,14 @@ texture = ExtResource("22_7t8sx")
 
 [node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1630566595]
 
+[connection signal="body_entered" from="lvl3/Lampa3" to="." method="_on_lampa_3_body_entered"]
+[connection signal="body_exited" from="lvl3/Lampa3" to="." method="_on_lampa_3_body_exited"]
+[connection signal="body_entered" from="lvl3/Lampa1" to="." method="_on_lampa_1_body_entered"]
+[connection signal="body_exited" from="lvl3/Lampa1" to="." method="_on_lampa_1_body_exited"]
+[connection signal="body_entered" from="lvl3/Lampa2" to="." method="_on_lampa_2_body_entered"]
+[connection signal="body_exited" from="lvl3/Lampa2" to="." method="_on_lampa_2_body_exited"]
+[connection signal="body_entered" from="lvl3/Lampa4" to="." method="_on_lampa_4_body_entered"]
+[connection signal="body_exited" from="lvl3/Lampa4" to="." method="_on_lampa_4_body_exited"]
 [connection signal="body_entered" from="interactables/Poster1" to="." method="_on_poster_1_body_entered"]
 [connection signal="body_exited" from="interactables/Poster1" to="." method="_on_poster_1_body_exited"]
 [connection signal="body_entered" from="interactables/Poster2" to="." method="_on_poster_2_body_entered"]

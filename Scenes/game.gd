@@ -84,7 +84,6 @@ func _on_code_door_body_entered(body: Node2D) -> void:
 	if body == player:
 		var sciezka = "res://Graphics/pinpadpodswietlone.png"
 		pinpad.texture = load(sciezka)
-		$interactables/Door.modulate = Color(0.0, 0.824, 0.663, 1.0)
 		player.interact = "code_door"
 
 
@@ -92,7 +91,6 @@ func _on_code_door_body_exited(body: Node2D) -> void:
 	if body == player:
 		var sciezka = "res://Graphics/pinpad.webp"
 		pinpad.texture = load(sciezka)
-		$interactables/Door.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		if player.interact == "code_door":player.interact = ""
 
 
@@ -111,7 +109,6 @@ func _on_poster_1_body_entered(body: Node2D) -> void:
 	if body == player:
 		var sciezka = "res://Graphics/plakat_1podswietlone.png"
 		plakat_1.texture = load(sciezka)
-		$interactables/Door.modulate = Color(0.0, 0.824, 0.663, 1.0)
 		player.interact = "poster1"
 
 
@@ -119,14 +116,12 @@ func _on_poster_1_body_exited(body: Node2D) -> void:
 	if body == player:
 		var sciezka = "res://Graphics/plakat_1.png"
 		plakat_1.texture = load(sciezka)
-		$interactables/Door.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		if player.interact == "poster1":player.interact = ""
 		
 func _on_poster_2_body_entered(body: Node2D) -> void:
 	if body == player:
 		var sciezka = "res://Graphics/plakat_2podswietlone.png"
 		plakat_2.texture = load(sciezka)
-		$interactables/Door.modulate = Color(0.0, 0.824, 0.663, 1.0)
 		player.interact = "poster2"
 
 
@@ -134,14 +129,12 @@ func _on_poster_2_body_exited(body: Node2D) -> void:
 	if body == player:
 		var sciezka = "res://Graphics/plakat_2.png"
 		plakat_2.texture = load(sciezka)
-		$interactables/Door.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		if player.interact == "poster2":player.interact = ""
 		
 func _on_poster_3_body_entered(body: Node2D) -> void:
 	if body == player:
 		var sciezka = "res://Graphics/plakat_3podswietlone.png"
 		plakat_3.texture = load(sciezka)
-		$interactables/Door.modulate = Color(0.0, 0.824, 0.663, 1.0)
 		player.interact = "poster3"
 
 
@@ -149,5 +142,50 @@ func _on_poster_3_body_exited(body: Node2D) -> void:
 	if body == player:
 		var sciezka = "res://Graphics/plakat_3.png"
 		plakat_3.texture = load(sciezka)
-		$interactables/Door.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		if player.interact == "poster3":player.interact = ""
+
+
+func _on_lampa_1_body_entered(body: Node2D) -> void:
+	if body == player:
+		
+		player.interact = "lampa_1"
+
+
+func _on_lampa_1_body_exited(body: Node2D) -> void:
+	if body == player:
+		
+		if player.interact == "lampa_1":player.interact = ""
+
+func _on_lampa_2_body_entered(body: Node2D) -> void:
+	if body == player:
+		
+		player.interact = "lampa_2"
+
+
+func _on_lampa_2_body_exited(body: Node2D) -> void:
+	if body == player:
+		
+		if player.interact == "lampa_2":player.interact = ""
+		
+func _on_lampa_3_body_entered(body: Node2D) -> void:
+	if body == player:
+		
+		player.interact = "lampa_3"
+
+
+func _on_lampa_3_body_exited(body: Node2D) -> void:
+	if body == player:
+		
+		if player.interact == "lampa_3":player.interact = ""
+
+		
+func _on_lampa_4_body_entered(body: Node2D) -> void:
+	if body == player:
+		
+		player.interact = "lampa_4"
+
+
+func _on_lampa_4_body_exited(body: Node2D) -> void:
+	if body == player:
+		
+		if player.interact == "lampa_4":player.interact = ""
